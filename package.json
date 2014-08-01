@@ -1,0 +1,15 @@
+{
+  "name": "closure-linter",
+  "main": "./lib/closure-linter",
+  "version": "0.1.0",
+  "description": "Atom package for Google closure linter",
+  "activationEvents": ["closure-linter:fixjsstyle"],
+  "repository": "https://github.com/miaopeng/atom-closure-linter",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "underscore": "~1.5.2"
+  }
+}
