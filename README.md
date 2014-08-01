@@ -1,4 +1,3 @@
-atom-closure-linter
-===================
+# Atom Closure Linter
 
 Atom package for Google Closure Linter
