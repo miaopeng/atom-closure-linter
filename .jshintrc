@@ -1,0 +1,28 @@
+{
+
+  "browser": true,
+  "nonstandard": true,
+  "globals": {
+    "jQuery":  true,
+    "$": true
+  },
+  "devel":  false,
+  "debug":   false,
+  "es3":   true,
+  "strict":  false,
+  "esnext":  false,
+  "eqeqeq":  true,
+  "eqnull":  true,
+  "expr":   true,
+  "immed":  true,
+  "noarg":  true,
+  "undef": true,
+  "unused": true,
+  "boss": false,
+  "proto": false,
+  "curly": true,
+  "nonew": true,
+  "sub": false,
+  "loopfunc": true,
+  "multistr": true
+}
