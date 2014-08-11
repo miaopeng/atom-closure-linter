@@ -5,12 +5,15 @@ View = require "./closure-linter-view"
 module.exports =
   activate: ->
     @view = new View()
-    atom.workspaceView.command "closure-linter:fixjsstyle", => @fixStyle()
+    atom.workspaceView.command "closure-linter:fixjsstyle", => @fixFileStyle()
 
-  fixStyle: ->
+  fixFileStyle: ->
     editor = atom.workspace.activePaneItem
     file = editor?.buffer.file
     filePath = file?.path
+    @fixStyle(filePath)
+
+  fixStyle: (filePath, callback) ->
     out = ''
 
     command = "fixjsstyle"
@@ -20,8 +23,10 @@ module.exports =
 
     exit = (code) =>
       console.log("fixjsstyle exited with #{code}")
-      @view.message({message: out})
-      @view.notice()
+      @notice(out)
+
+      if (typeof callback == 'function')
+        callback()
 
     # Run process
     @bufferedProcess = new BufferedProcess({
@@ -32,3 +37,8 @@ module.exports =
       console.log (nodeError.message)
       console.log ("Unable to run #{_.escape command}")
       console.log ("PATH: #{_.escape process.env.PATH}")
+
+  notice: (message) ->
+    if @view
+      @view.message({message})
+      @view.notice()
