@@ -5,7 +5,7 @@
     'submenu': [
       'label': 'Closure Linter'
       'submenu': [
-        { 'label': 'fixjsstyle', 'command': 'closure-linter:fixjsstyle' }
+        { 'label': 'Fix Style', 'command': 'closure-linter:fixjsstyle' }
       ]
     ]
   }

@@ -21,7 +21,7 @@ module.exports =
       flags: ['--nojsdoc'],
       src: [src],
       reporter: {
-        name: 'console'
+        # name: 'console'
       }
     }, callback
 
