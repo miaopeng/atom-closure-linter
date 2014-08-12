@@ -1,5 +1,5 @@
-{BufferedProcess, $$} = require 'atom'
 _ = require 'underscore'
+{gjslint, fixjsstyle} = require("closure-linter-wrapper")
 View = require "./closure-linter-view"
 
 module.exports =
@@ -10,33 +10,31 @@ module.exports =
   fixFileStyle: ->
     editor = atom.workspace.activePaneItem
     file = editor?.buffer.file
-    filePath = file?.path
-    @fixStyle(filePath)
+    src = file?.path
+    @fixStyle(src)
 
-  fixStyle: (filePath, callback) ->
-    out = ''
+  fixStyle: (src, callback) ->
+    callback or= (err, result) =>
+      @notice(result) if !err
 
-    command = "fixjsstyle"
-    args = ['--nojsdoc', "#{filePath}"]
-    stdout = (output) ->
-      out = output
+    fixjsstyle {
+      flags: ['--nojsdoc'],
+      src: [src],
+      reporter: {
+        name: 'console'
+      }
+    }, callback
 
-    exit = (code) =>
-      console.log("fixjsstyle exited with #{code}")
-      @notice(out)
+  lint: (src) ->
+    gjslint {
+      flags: ['--nojsdoc'],
+      src: [src],
+      reporter: {
+        name: 'console'
+      }
+    }, (err, result) ->
+      console.log('Everything went fine') if !err
 
-      if (typeof callback == 'function')
-        callback()
-
-    # Run process
-    @bufferedProcess = new BufferedProcess({
-      command, args, stdout, exit
-    })
-
-    @bufferedProcess.process.on 'error', (nodeError) ->
-      console.log (nodeError.message)
-      console.log ("Unable to run #{_.escape command}")
-      console.log ("PATH: #{_.escape process.env.PATH}")
 
   notice: (message) ->
     if @view
