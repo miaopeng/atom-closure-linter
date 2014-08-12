@@ -17,7 +17,7 @@ Press `ctrl-cmd-j` to fix coding styles for current saved javascript file.
 
 ## Changelog
 
-0.1.2
+0.2.0
 
   * Popup messages for command result.
   * Run command with the help of `closure-linter-wrapper` package.
