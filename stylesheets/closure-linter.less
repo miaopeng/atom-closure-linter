@@ -5,15 +5,19 @@
 @import "ui-variables";
 
 .closure-linter.tooltip {
-  top: 35px;
-  left: inherit;
+  top: @tab-height + 10;
+  left: auto;
   right: 5px;
+  width: 500px;
   padding-right: 40px;
+  white-space: normal;
   border-radius: 3px;
+  background-color: @base-background-color;
   button.close {
-    font-size: 13px;
     position: absolute;
     top: 8px;
     right: 11px;
+    font-size: 13px;
+    color: @text-color;
   }
 }
