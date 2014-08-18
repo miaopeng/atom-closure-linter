@@ -1,7 +1,7 @@
 {
   "name": "closure-linter",
   "main": "./lib/closure-linter",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Atom package for Google Closure Linter",
   "activationEvents": [
     "closure-linter:fixjsstyle"
