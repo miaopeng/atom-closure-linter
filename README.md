@@ -12,7 +12,7 @@ $ apm install closure-linter
 
 ## Usage
 
-Press `ctrl-cmd-j` to fix coding styles for current saved javascript file.
+Press `ctrl-cmd-j` to fix coding styles for current javascript file.
 
 
 ## Changelog
