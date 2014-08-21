@@ -1,7 +1,7 @@
 {
   "name": "closure-linter",
   "main": "./lib/closure-linter",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Atom package for Google Closure Linter",
   "repository": "https://github.com/miaopeng/atom-closure-linter",
   "license": "MIT",
